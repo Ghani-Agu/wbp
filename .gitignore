@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+/.pnp
+.pnp.*
+
+# next.js
+.next/
+/out/
+/build
+
+# env files (secrets)
+.env
+.env.*
+!.env.example
+
+# editor / local tooling
+.claude/settings.local.json
+
+# misc
+.DS_Store
+*.pem
+.thumbnail
+
+# raw product image source
+/images/

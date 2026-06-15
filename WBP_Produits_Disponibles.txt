@@ -1,0 +1,218 @@
+==============================================================================================================
+        WORLD BUSINESS PLUS - LISTE DES PRODUITS DISPONIBLES EN STOCK
+        Date d'export : 15/06/2026
+        Nombre de produits disponibles : 206
+==============================================================================================================
+
+#    Référence                   Nom du Produit                            Catégorie                   Qté en stock   Qté prévisionnellePrix de Vente
+--------------------------------------------------------------------------------------------------------------
+1    DHI-VTO4202F-P-S3           2-wire IP Modular Apartment Door Station  VIDEO INTERCOM              1              1                 0,00
+2    48V 1.25 A POWER SUPPLY     48V 1.25 A POWER SUPPLY                   Réseau                      70             70                0,00
+3    AJAX Batterie - CR123A      AJAX Batterie CR123A 3V                   ALARM SYSTEM                61             61                400,00
+4    Hub 2 Plus                  AJAX Central d'alarme Hub 2 Plus          ALARM SYSTEM                43             43                60 000,00
+5    AJAX DOORPROTECT WHITE      AJAX Contact d'Ouverture Magnétique ILS   ALARM SYSTEM                4              2                 8 000,00
+6    FireProtect2RB              AJAX Détecteur De fumée et Température    Réseau                      60             60                15 500,00
+7    AJAX MOTIONCAM WHITE        AJAX Détecteur De Mouvement Avec Camera   ALARM SYSTEM                14             14                24 000,00
+8    AJAX MOTIONPROTECT WHITE    AJAX Détecteur De Mouvement Blanc         ALARM SYSTEM                2              2                 10 000,00
+9    DoorBell                    AJAX DoorBellGraphite                     Réseau                      2              2                 37 000,00
+10   -                           AJAX LifeQuality Jeweller                 Réseau                      2              2                 1,00
+11   AJAX STREETSIREN WHITE      AJAX Sirène Extérieur StreetSiren         ALARM SYSTEM                135            134               23 000,00
+12   AJAX HOMESIREN WHITE        AJAX Sirène Intérieur Blanche             ALARM SYSTEM                24             24                13 000,00
+13   AJAX SPACECONTROL WHITE     AJAX Télécommande Blanche                 ALARM SYSTEM                108            107               5 000,00
+14   AMO-2G13                    Antenne Omni UBIQUITI 2.0 Ghz 13 DBI AMO  Réseau sans Fil             4              4                 62 000,00
+15   Alimentation 12V/5A  4 Sor  Armoire d'alimentation 04 Sorties 12V/5A  Bloc d'alimentation         92             92                2 500,00
+16   PFM340-5CH                  Armoire d'alimentation Dahua 05 Sorties   Bloc d'alimentation         7              7                 0,00
+17   PFM342-9CH                  Armoire d'alimentation Dahua 09 Sorties   Bloc d'alimentation         19             19                11 000,00
+18   PFM341-9CH                  Armoire d'alimentation Dahua 09 Sorties   Bloc d'alimentation         25             25                9 000,00
+19   Armoire de brassage TS-EW4  Armoire de brassage 4U                    Armoire de brassage         1              1                 9 700,00
+20   DHI-EVS5124S                Baie de Stockage Dahua support 24 HDD's   EVS                         2              1                 790 000,00
+21   EVS5148S                    Baie de Stockage Dahua support 48 HDD's   EVS                         1              1                 1 630 000,00
+22   Baterie Alarme              baterie recharjable alarme dahua          Réseau                      2              2                 0,00
+23   DHI-HY-1200                 BBG Adressable Dahua DHI-HY-1200          Système d'alarme incendie   2              2                 4 500,00
+24   DHI-HY-SGDZ                 Boitier stroboscopique pour sondeur DHI-  TOUS / Saleable             6              6                 1,00
+25   DHI-HY-C121                 Brise Glace (BBG)Dahua Conventionnel DHI  FIRE ALARM / Conventionnel  37             17                3 000,00
+26   Camera DH-IPC-HFW5541E-ZE   Caméra Dahua Bullet 5MP Motorisé Série W  CAMERA IP                   85             81                55 000,00
+27   DH-IPC-HFW2441SP-S          Camera Dahua Bullet IP 4MP Fix 2.8mm DH-  CAMERA IP                   1              0                 17 000,00
+28   DH-IPC-HFW1431T1P-ZS        Caméra Dahua Bullet IP 4MP Motorisé DH-I  Réseau                      1              1                 23 000,00
+29   DH-IPC-HFW2541S-S           Camera Dahua Bullet IP 5MP Fix 2.8mm Wiz  CAMERA IP                   302            136               23 000,00
+30   DH-IPC-HFW2541T-ZS          Camera Dahua Bullet IP 5MP Objectif Moto  Réseau                      38             -2                32 000,00
+31   DH-IPC-HDBW2541E-S          Caméra Dahua Dome IP 5MP Fix 2.8mm DH-IP  CAMERA IP                   45             1                 20 000,00
+32   DH-IPC-HDBW2541R-ZS         Caméra Dahua Dome IP 5MP Objectif Motori  CAMERA IP                   464            438               30 000,00
+33   T2A21                       Camera Dahua hdcvi 2Mp Dome T2A21         TOUS                        542            422               5 500,00
+34   B2A21                       Caméra Dahua HDCVI Bullet 2MP Fix Série   Réseau                      2 933          2 763             6 200,00
+35   Camera DH-HAC-HFW1500TP     Caméra Dahua HDCVI Bullet 5MP Fix 2.8mm   CAMERA HDCVI                5 434          5 414             9 000,00
+36   Camera Dahua DH-HAC-HFW150  Camera Dahua HDCVI Bullet 5MP Fix Full C  CAMERA HDCVI                13             13                9 500,00
+37   B2A51P                      Caméra Dahua HDCVI Bullet 5MP Fix Série   CAMERA HDCVI                150            -154              8 000,00
+38   DH-HAC-HDW1200TRQP-A        Caméra Dahua HDCVI Dome 2MP Fix 2.8mm DH  CAMERA HDCVI                1 114          1 084             6 900,00
+39   DH-HAC-T1A21P               Caméra Dahua HDCVI Dome 2MP Fix 2.8mm DH  CAMERA HDCVI                54             54                3 200,00
+40   DH-HAC-HDW1500TRQP-A        Caméra Dahua HDCVI Dome 5MP Fix 2.8mm DH  CAMERA HDCVI                130            0                 8 500,00
+41   T2A51P                      Caméra Dahua HDCVI Dome 5MP Fix 2.8mm T2  Réseau                      67             47                6 800,00
+42   DH-IPC-EBW5641P-AS          Camera Dahua IP 6MP Fisheye WizMind DH-I  CAMERA IP                   1              1                 38 000,00
+43   DH-IPC-HFW3841EP-SA         Camera Dahua IP 8MP Bullet Fix WizSens D  Réseau                      2              2                 30 000,00
+44   DH-IPC-HFW3841TP-ZS         Camera Dahua IP 8MP Bullet Objectif Moto  Réseau                      1              1                 32 000,00
+45   Camera DHI-ITC413-PW4D-Z1   Camera Dahua IP Acces ANPR DH-ITC413-PW4  CAMERA IP                   7              3                 120 000,00
+46   DH-IPC-HFW5541EP-ASE        Camera Dahua IP Bullet 5MP Fix 2.8mm Wiz  CAMERA IP                   25             25                35 000,00
+47   DH-IPC-HFW2841SP-S          Camera Dahua IP Bullet 8MP Fix 2.8mm Wiz  CAMERA IP                   41             41                25 000,00
+48   DH-IPC-HFW2841TP-ZAS        Caméra Dahua IP Bullet 8MP Motorisé WizS  CAMERA IP                   16             -45               36 000,00
+49   DH-IPC-HDBW2841RP-ZS        Camera Dahua IP Dome 8MP Motorisé WizSen  CAMERA IP                   137            72                34 000,00
+50   Camera DH-IPC-EBW81230      Camera Dahua IP Fish Eye 12MP WizMind DH  CAMERA IP                   1              1                 80 000,00
+51   DH-SD1A404DB-GNY            Camera Dahua IP Mini PTZ 4MP x4 DH-SD1A4  Réseau                      70             51                35 000,00
+52   SD6AL445GB-HNV-IR           Camera Dahua IP Speed Dome 4MP x45 WizMi  CAMERA IP                   6              1                 230 000,00
+53   DH-IPC-HDBW5541R-ASE        Camera Dome IP 5MP Fix WizMind DH-IPC-HD  CAMERA IP                   46             46                35 000,00
+54   DH-HAC-HFW1200TP            CAMERA HDCVI 2MP Bullet Fix  DH-HAC-HFW1  CAMERA HDCVI                1 374          1 254             6 500,00
+55   DS-2CD3023G2-IU             Camera Hikvision Bullet IP 2MP Fix DS-2C  CAMERA IP                   77             57                10 000,00
+56   DS-2CD3123G2-IU             CAMERA HIKVISION DOME IP 2MP DS-2CD3123G  CAMERA IP                   94             74                10 000,00
+57   DH-IPC-HDBW2841E-S          Camera IP Dahua 8MP Dome 2.8mm WizSense   Réseau                      486            353               24 000,00
+58   DH-IPC-HDBW2441RP-ZS        Caméra IP Dahua Dome 4MP Motorisé DH-IPC  CAMERA IP                   20             20                23 000,00
+59   DH-IPC-HDW2441T-ZS          Caméra IP Dahua Dome 4MP Motorisé DH-IPC  CAMERA IP                   1              1                 24 000,00
+60   DH-SD5A432GB-HNR            Camera Speed Dome Dahua IP 4MP X32 DH-SD  CAMERA IP                   19             -7                200 000,00
+61   PFB300C                     Ceiling Mount Bracket PFB300C             Réseau                      1              1                 1,00
+62   KeyPad Outdoor              Clavier KeyPad Indoor-Outdoor             Réseau                      10             10                27 000,00
+63   DHI-ECC02                   Contrôleur d'accès Dahua pour Accesseurs  Réseau                      10             10                52 000,00
+64   CSP20                       CSP20                                     Réseau                      1              1                 0,00
+65   AJAX CURTAIN-OUTDOOR-WH     Curtain Outdoor Jeweller ajax             Réseau                      25             25                29 000,00
+66   DHI-HY-C132                 Detecteur de chaleur Dahua conventionnel  FIRE ALARM / Conventionnel  81             81                3 500,00
+67   DHI-HY-SA30A                Détecteur de fumée autonome DHI-HY-SA30A  TOUS / Saleable             3              3                 5 000,00
+68   DHI-HY-C133                 Detecteur de fumée conventionnel Dahua 0  FIRE ALARM / Conventionnel  22             22                3 500,00
+69   DHI-HY-1301                 Détecteur de fumée Dahua Adressable DHI-  Système d'alarme incendie   85             50                5 000,00
+70   DHI-HY-C131                 Detecteur de fumée Dahua conventionnel 0  FIRE ALARM / Conventionnel  2              2                 3 500,00
+71   MotionCam Outdoor HighMoun  Détecteur de mouvement extérieur Ajax Mo  TOUS / Saleable             102            102               55 000,00
+72   DHI-HY-TCDZ                 Detector Base Adressable DHI-HY-TCDZ      Système d'alarme incendie   140            140               1,00
+73   DHI-HY-GC20B                DHI-HY-GC20B                              TOUS / Saleable             1              1                 1,00
+74   DHI-HY-GC20B-R8             DHI-HY-GC20B-R8                           TOUS / Saleable             1              1                 1,00
+75   DHI-HY-SA20A                DHI-HY-SA20A                              TOUS / Saleable             1              1                 1,00
+76   DHI-HY-SA2FA                DHI-HY-SA2FA                              TOUS / Saleable             2              2                 1,00
+77   DHI-HY-SA30A-R8             DHI-HY-SA30A-R8                           TOUS / Saleable             1              1                 1,00
+78   DHI-HY-TCDZ4                DHI-HY-TCDZ4                              Réseau                      317            317               1,00
+79   HDD 4TB Seagate             Disque Dur 4TB Seagate SKYHAWK            Disque dur                  3              3                 25 000,00
+80   HDD 6TB Seagate skyhawk     Disque Dur 6TB Seagate SKYHAWK            Disque dur                  4              0                 40 000,00
+81   8TBS-EXOS                   Disque Dur 8TB Seagate EXOS               Disque dur                  119            102               72 000,00
+82   8TBSKAYHAWK                 Disque Dur 8TB Seagate SkyHawk            Disque dur                  40             40                70 000,00
+83   Disque Dur Hewlett Packard  Disque Dur Hewlett Packard Entreprise 80  Disque dur                  10             10                0,00
+84   DHI-PKP-WP1B                Dongle Dahua de partage d'écran           Réseau                      5              5                 0,00
+85   DHI-PHMIA135                Ecran Dahua LED 135'' All In One DHI-PHM  Réseau                      5              5                 4 690 000,00
+86   DHI-PHMIA 135-CC            Ecran Dahua LED 135'' All In One DHI-PHM  Réseau                      1              1                 1,00
+87   DHI-PHMIA 135-CF            Ecran Dahua LED 135'' All In One DHI-PHM  Réseau                      2              2                 1,00
+88   B8610                       Ecran interactif Maxhub 86'' Blackboard   Display                     5              5                 1 190 000,00
+89   U8630                       Ecran interactif Maxhub 86''  U3 Series   Réseau                      3              3                 1 190 000,00
+90   C8630+MT71E                 Ecran interactif Maxhub 86'' V6 Classic   Réseau                      30             28                950 000,00
+91   T8630+MT71E                 Ecran interactif Maxhub 86'' V6 Transcen  Réseau                      11             11                1 395 000,00
+92   ND75CMA                     Ecran MAXHUB 75" 4K UHD Android           Commercial Display          1              1                 485 000,00
+93   ND86CMA                     Ecran MAXHUB 86" 4K UHD Android           Réseau                      1              1                 555 000,00
+94   VTH2421FB-P                 Ecran VDP Dahua 7" PoE VTH2421FB-P        VIDEO INTERCOM              44             44                24 000,00
+95   DHI-VTA2511G                Emergence Call Terminal DHI-VTA2511G      Réseau                      2              2                 39 000,00
+96   DHI-HY-1711                 Encoder Dahua (Centrale Adressable)       Système d'alarme incendie   2              2                 17 000,00
+97   LR1002                      EoC Passive Converter LR1002              Affichage                   19             19                3 800,00
+98   DHI-ARM310-W2(868)          Extenseur d’entrée sans fil DHI-ARM310-W  Réseau                      1              1                 5 000,00
+99   DHI-ARD323-W2(868)          ILS Dahua ARD323-W2                       ALARM DAHUA                 55             55                5 500,00
+100  DHI-HY-RI151                Indicateur d'action Dahua Adressable DHI  Réseau                      31             -154              3 200,00
+101  VTO2000A-E                  IP Module Station extérieure de villa IP  VIDEO INTERCOM              2              2                 4 800,00
+102  DHI-VTNS1060A-A             IP Power Supply & Switch pour VTH VTNS10  VIDEO INTERCOM              16             16                8 000,00
+103  IVSS7124DR                  IVSS Dahua 256 Channels Support 24HDD's   NVR                         1              1                 1 450 000,00
+104  DH-PFA137                   Junction box DH-PFA137                    TOUS / Saleable             1              1                 3 500,00
+105  KIT STARTER AJAX + Street   Kit Ajax Starter avec Sirène Exterieur    ALARM SYSTEM                56             54                65 000,00
+106  ASR1200E                    Lecteur de control d'accès Card Dahua AS  Access Control              180            77                5 000,00
+107  ASR1101M-V1                 Lecteur de control d'accès Card/Password  Access Control              3              3                 13 000,00
+108  DHI-ASI2201H-W              Lecteur de control d'accès Dahua Autonom  Access Control              32             32                25 000,00
+109  ASI3214A-W                  Lecteur de contrôle d’accès Dahua avec R  Access Control              22             22                32 000,00
+110  DHI-ASI6214S-PW             Lecteur de contrôle d’accès Dahua avec R  Access Control              28             28                42 000,00
+111  -                           LES GOULT 80*50 Legrand                   Accessoire Fibre Optique    6              6                 0,00
+112  UCP30                       MAXHUB Camera PTZ Dual-eye Tracking 4K U  Réseau                      6              5                 270 000,00
+113  GV2712                      MAXHUB Ecran LED 610*343                  Réseau                      1              1                 0,00
+114  CM20                        MAXHUB Omnidirictional Microphone         Réseau                      1              1                 1,00
+115  EST09                       MAXHUB Support Mobile Ajustement Électri  Réseau                      1              1                 188 000,00
+116  ST33M                       MAXHUB Support Mobile ST33M               Réseau                      2              2                 98 000,00
+117  ST90                        MAXHUB Support Mobile ST90                Réseau                      1              1                 0,00
+118  UC W31                      MAXHUB Webcam UC W31                      Réseau                      1              1                 1,00
+119  W20                         MAXHUB Webcam W20                         Réseau                      1              1                 1,00
+120  WT13M                       MAXHUB Wireless BYOM Dongle WT13M         Réseau                      2              2                 38 000,00
+121  DHI-HY-MKDZ2                Module Base Adressable DHI-HY-MKDZ2       Système d'alarme incendie   6              6                 1,00
+122  DHI-HY-1431                 Module isolateur Adressable Dahua DHI-HY  Système d'alarme incendie   3              1                 3 800,00
+123  SFP-SR-10G                  Module SFP multimode 10G COMMANDO         Réseau                      2              2                 10 874,00
+124  CMD-MM-1G                   Module SFP multimode 1G COMMANDO          Réseau                      2              2                 5 875,00
+125  DHI-VTH5422HW               Moniteur Dahua 7" IP 2 Wire VTH5422HW-W   VIDEO INTERCOM              4              2                 27 000,00
+126  DHI-LM55-F400               Moniteur LED 55" DHI-LM55-F400            TOUS / Saleable             6              6                 160 000,00
+127  DS-D2055UL-1B               Mur d'images Hikvision 55" (09 Ecrans 3x  TOUS / Saleable             15             14                3 150 000,00
+128  MZ-ILS800N                  MZ-ILS800N                                TOUS / Saleable             10             10                0,00
+129  NVR4108HS-4KS3              NVR Dahua 08 Channels 4K NVR4108HS-4KS3   NVR                         55             55                28 000,00
+130  DHI-NVR608H-128-XI          NVR Dahua 128 Channels 4K support 08 HDD  NVR                         5              5                 370 000,00
+131  DHI-NVR616RH-128-XI         NVR Dahua 128 Channels 4K support 16 HDD  Réseau                      2              2                 580 000,00
+132  DHI-NVR4216-4KS3            NVR Dahua 16 Channels 4K Support 2HDD DH  Réseau                      2              2                 42 000,00
+133  NVR5216-EI                  NVR Dahua 16 Channels 4K Support 2HDD NV  NVR                         99             92                59 000,00
+134  NVR DHI-NVR5424-24P-4KS2    NVR Dahua 24 Channles avec 24 Ports PoE   NVR                         1              0                 130 000,00
+135  NVR5232-EI                  NVR Dahua 32 Channels Support 2HDD's 4K   NVR                         3              3                 72 000,00
+136  NVR5432-EI                  NVR Dahua 32 Channels Support 4HDD's 4K   NVR                         5              3                 100 000,00
+137  NVR5832-EI                  NVR Dahua 32 Channels Support 8HDD's 4K   Réseau                      6              5                 147 000,00
+138  DHI-NVR608H-64-XI           NVR Dahua 64 Channels 4K support 08 HDD'  NVR                         9              8                 320 000,00
+139  NVR5864-EI                  NVR Dahua 64 Channels 4K support 8HDD's   NVR                         23             22                186 000,00
+140  NVR5464-EI2                 NVR Dahua 64 Channels Support 4HDD's 4K   Réseau                      6              1                 140 000,00
+141  PFL0550-E6D                 Objectif Dahua Vari-focal 5-50mm PFL0550  Objective                   55             24                16 000,00
+142  PFL2712-E6D                 Objectif (Lens) Vari-focal 2.7-12mm DH-P  Objective                   36             36                0,00
+143  DHI-SP-PI5B82IS             OPS Dahua Open Pluggable Specification D  Affichage                   1              1                 0,00
+144  DH-PFA106                   Plaque d'adaptation PFA106                SUPPORT                     36             36                0,00
+145  VTO2000-7                   PLATINE 7 BOUTONS INOX                    VIDEO INTERCOM              1              1                 0,00
+146  VTO3222E-P                  Platine de rue Dahua IP 02 Wire ou PoE V  VIDEO INTERCOM              7              7                 50 000,00
+147  VTO3312Q-P                  Platine de rue Dahua IP 4 Boutons PoE +   VIDEO INTERCOM              2              2                 32 000,00
+148  VTO6521K-S2                 Platine de Rue Dahua IP pour Appartement  VIDEO INTERCOM              6              6                 75 000,00
+149  VTO2000A-C-S1               Platine de Rue VTO2000A-C                 VIDEO INTERCOM              25             25                21 000,00
+150  Loco5AC                     Point Accès NanoStation AC loco           Réseau                      2              2                 0,00
+151  U7-Outdoor                  Point Accès Ubiquiti UniFi WiFi 7 U7-Out  Réseau                      10             10                86 390,00
+152  U7-Pro                      Point Accès Ubiquiti WiFi 7 U7-Pro        Réseau                      7              7                 76 000,00
+153  DHI-HY-PSB10A               Power Supply Box Dahua with power supply  Réseau                      1              1                 0,00
+154  DHI-DEE1010B                Relai d'Ouverture de Porte DHI-DEE1010B   VIDEO INTERCOM              86             86                6 500,00
+155  DHI-ARA43-W2(868)           Repeteur Dahua ARA43-W2                   ALARM DAHUA                 18             18                17 000,00
+156  LR1002-1EC                  Single-Port Long Reach EoC Extender DH-L  Affichage                   12             12                6 500,00
+157  DH-LR1002-1ET               Single-Port Long Reach EoC Extender DH-L  Affichage                   3              3                 6 500,00
+158  DHI-HY-C151                 Sirène d'incendie conventionnel Dahua av  FIRE ALARM / Conventionnel  11             11                5 000,00
+159  DHI-HY-C152                 Sirène Extérieur conventionnel DHI-HY-C1  ALARM SYSTEM                19             14                5 500,00
+160  DHI-ARA13-W2(868)           Sirène Extérieur Dahua ARA13-W2           ALARM DAHUA                 238            238               16 000,00
+161  DHI-VTOF003                 Socle DHI-VTOF003                         VIDEO INTERCOM              16             16                7 280,00
+162  VTM116-01                   Socle pour VTO6221E-P VTM116-01           VIDEO INTERCOM              17             17                0,00
+163  SOCLE VTO B 108             Socle VTO 2000 A VTO B 108                VIDEO INTERCOM              6              6                 15 000,00
+164  VTOB114                     Socle VTOB114                             VIDEO INTERCOM              16             16                8 250,00
+165  SO-FIL                      SO-FIL SOURIS SANS FIL                    SOURIS                      1              1                 0,00
+166  support                     support                                   Réseau                      10             10                0,00
+167  DH-PFA101                   Support Adaptateur de montage PFA101      SUPPORT                     70             70                2 200,00
+168  DH-PFA152-E                 Support Dahua sur Pylon DH-PFA152-E       SUPPORT                     49             49                2 500,00
+169  DH-PFB121W                  Support de fixation murale PFB121W        SUPPORT                     18             18                2 200,00
+170  DH-PFB203W                  Support de fixation murale Pour Camera D  SUPPORT                     11             11                2 500,00
+171  LMB-280ZL                   Support de fixation ZL pour ventouse ZK   TOUS / Saleable             3              3                 4 000,00
+172  -                           Support de montage métallique rond        Affichage                   17             17                0,00
+173  PKC-MS1A                    Support mobile Dahua pour ecran interact  Réseau                      2              2                 0,00
+174  ARA34E                      Support mural pour détecteur Extérieur    ALARM DAHUA                 29             29                5 000,00
+175  DH-PFA100                   Support PFA100                            SUPPORT                     20             20                2 200,00
+176  PFA111                      Support PTZ Mount Adapter PFA111          SUPPORT                     15             15                2 500,00
+177  Supports pour caméras       Support rond pour camera                  Réseau                      22             22                0,00
+178  -                           Support TV                                Réseau                      1              1                 0,00
+179  AL350PZ                     Support Z Ventouse Magnétique 350KG       SUPPORT                     1              1                 2 500,00
+180  DHI-VTNS1001B-2             Switch Contrôleur pour VTH/VTO 2 Fil DHI  VIDEO INTERCOM              11             10                12 000,00
+181  DH-IS4410-6GT-120           Switch Dahua 06 ports POE + 4 ports SFP   Réseau                      62             62                72 000,00
+182  DH-IS4210-8GT-120           Switch Dahua 08 Ports PoE Industriel Gig  SWITCH                      107            107               72 000,00
+183  DH-PFS4210-8GT-DP           Switch Dahua 08 Ports PoE Industriel Gig  SWITCH                      2              0                 72 000,00
+184  DH-CS4218-16ET-190          Switch Dahua 16 Ports PoE avec 02 Ports   SWITCH                      85             73                39 000,00
+185  DH-CS4220-16GT-190          Switch Dahua 16 Ports PoE Gigabit avec 0  SWITCH                      7              5                 44 000,00
+186  AS5500-48GF4XF              Switch Dahua d'aggregation 48 Ports SFP   SWITCH                      3              3                 390 000,00
+187  DH-CS4006-4ET-60            Switch PoE Dahua 04 Ports PoE Cloud DH-C  SWITCH                      184            184               8 000,00
+188  DH-CS4226-24ET-240          Switch PoE Dahua 24 Ports 240W DH-CS4226  SWITCH                      25             24                45 000,00
+189  Switch PFS4428-24GT-370     Switch PoE Dahua 24 Ports PoE Gigabit, 0  SWITCH                      7              6                 95 000,00
+190  SWITCH PFS3110-8ET-96       Switch PoE Dahua 8 Ports + Port SFP DH-P  SWITCH                      112            102               17 000,00
+191  DHI-VTNS2003B-2-A           Switch pour VTH/VTO 2 Fil VTNS2003        VIDEO INTERCOM              1              1                 10 000,00
+192  Transfo 12V 2A              TRANSFO 12V/2A                            TRANSFO                     363            363               700,00
+193  TRANSFO 12V 5A              TRANSFO 12V/5A                            Bloc d'alimentation         375            375               1 100,00
+194  U7-PRO-WALL                 U7-PRO-WALL - Ubiquiti Unifi U7 PRO WALL  Réseau                      4              3                 68 000,00
+195  UACC-CM-RJ45-MG             UACC-CM-RJ45-MG -Module UACC-CM-RJ45-MG   Réseau                      2              2                 0,00
+196  UBIQUITI AMO-5G13           UBIQUITI Antenne Omni 5.0 Ghz 13 DBI AMO  Réseau sans Fil             7              7                 55 000,00
+197  UBIQUITI LOCO 5AC           UBIQUITI Point d'accès Emetteur & Récept  Réseau sans Fil             2              2                 26 000,00
+198  UBIQUITI ROCKetM2           UBIQUITI Point d'accès Emetteur & Récept  Réseau sans Fil             1              1                 26 000,00
+199  UBIQUITI ROCKetM5           UBIQUITI Point d'accès Emetteur & Récept  Réseau sans Fil             8              8                 29 000,00
+200  UBIQUITI PBE-5AC-500        UBIQUITI Point d'accès Extérieur Power B  Réseau sans Fil             2              2                 75 000,00
+201  UBIQUITI US-8-60W           UBIQUITI Switch 8 Ports PoE 60W US-8-60W  Réseau sans Fil             1              1                 36 000,00
+202  USW-PRO-48-POE              Unifi Switch 48 ports Pro Gen2 USW-PRO-4  Réseau                      1              1                 0,00
+203  USW-PRO-48                  USW-PRO-48 - Unifi Switch 48 ports Pro G  Réseau                      2              2                 0,00
+204  LM3505                      Ventouse électromagnétique 350KG ZKteco   TOUS / Saleable             17             17                9 000,00
+205  VTM-134                     VTM-134                                   Réseau                      1              1                 1,00
+206  VTOB113                     VTOB113                                   VIDEO INTERCOM              7              7                 1,00
+
+--------------------------------------------------------------------------------------------------------------
+  Total produits disponibles en stock : 206
+==============================================================================================================

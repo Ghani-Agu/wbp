@@ -1,0 +1,9 @@
+@import '../styles/fonts.css';
+@import '../styles/styles.css';
+@import '../styles/styles2.css';
+
+/* quote modal items + misc additions for the full-stack build */
+.quote-items{margin:4px 0 2px;display:flex;flex-direction:column;gap:6px}
+.quote-item-line{font-size:13px;color:var(--ink-2);background:var(--surface-2);border-radius:var(--radius-sm);padding:8px 10px}
+.quote-item-line i{color:var(--ink-3)}
+.quote-item-line span{font-weight:700;color:var(--ink)}
