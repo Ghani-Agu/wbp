@@ -34,3 +34,49 @@
   .sec-title { font-size: 22px; }
   .pp-actions { grid-template-columns: 1fr; }
 }
+
+/* ============================================================================
+   Mobile shopping experience — dense, app-like grids (Temu/Amazon style)
+   ============================================================================ */
+@media (max-width: 700px) {
+  /* Product, category & brand grids stay 2 columns — never one giant card */
+  .prod-grid, .cat-grid, .brand-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Compact product cards */
+  .pcard-media { aspect-ratio: 1 / 1; }
+  .pcard-body { padding: 9px 10px 11px; gap: 4px; }
+  .pcard-cat { font-size: 9px; letter-spacing: .04em; }
+  .pcard-title { font-size: 12.5px; line-height: 1.25; min-height: 2.3em; }
+  .pcard-rev { font-size: 10px; }
+  .pcard-foot { padding-top: 7px; margin-top: 6px; gap: 4px; }
+  .pcard-price { font-size: 12px; }
+  .pcard-go span { display: none; }                 /* keep just the arrow */
+  .pcard-quick { opacity: 1; transform: none; width: 32px; height: 32px; bottom: 8px; inset-inline-end: 8px; }
+
+  /* Compact category tiles */
+  .cat-card { padding: 13px; gap: 5px; }
+  .cat-ico { width: 38px; height: 38px; border-radius: 11px; }
+  .cat-ico svg { width: 21px; height: 21px; }
+  .cat-name { font-size: 13.5px; margin-top: 2px; }
+  .cat-blurb { display: none; }                     /* hide subtitle for compact tiles */
+  .cat-foot { margin-top: 4px; }
+  .cat-count { font-size: 11.5px; padding: 2px 8px; }
+
+  /* Compact brand tiles */
+  .brand-card { padding: 13px; gap: 7px; }
+  .brand-card-mark { width: 40px; height: 40px; font-size: 15px; }
+  .brand-card-name { font-size: 13px; }
+
+  /* Best-sellers carousel: show ~2 per view so it feels like browsing */
+  .car-track { grid-auto-columns: 46%; gap: 12px; }
+
+  /* Catalog tools row */
+  .cat-search { height: 42px; min-width: 0; }
+  .cat-sort select { font-size: 13px; }
+}
+
+@media (max-width: 380px) {
+  .prod-grid, .cat-grid, .brand-grid { gap: 9px; }
+  .pcard-body { padding: 8px 9px 10px; }
+  .car-track { grid-auto-columns: 62%; }
+}
