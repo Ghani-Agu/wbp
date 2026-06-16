@@ -32,7 +32,7 @@ ${pre}
       <tr><td style="padding:22px 28px;border-bottom:1px solid ${LINE}">
         <table role="presentation" width="100%"><tr>
           <td align="${dir === 'rtl' ? 'right' : 'left'}">
-            <span style="display:inline-block;width:30px;height:30px;background:${ACCENT};color:#fff;border-radius:8px;text-align:center;line-height:30px;font-weight:bold;vertical-align:middle">W</span>
+            <img src="${site}/logos/wbp.png" width="34" height="34" alt="WBP" style="vertical-align:middle;border:0;border-radius:6px" />
             <span style="font-weight:bold;font-size:16px;vertical-align:middle;padding:0 8px">World Business Plus</span>
           </td>
           <td align="${dir === 'rtl' ? 'left' : 'right'}" style="color:${ACCENT};font-size:11px;letter-spacing:.04em;text-transform:uppercase">${c.tagline}</td>

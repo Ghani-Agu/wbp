@@ -19,8 +19,13 @@ const BRAND_LOGOS = {
   wd: '/logos/brands/wd.png',
   westerndigital: '/logos/brands/wd.png',
   seagate: '/logos/brands/seagate.png',
-  // dahua & apollo: no logo asset supplied -> components fall back to the text mark
+  dahua: '/logos/brands/dahua.png',
+  dahuatechnology: '/logos/brands/dahua.png',
+  // apollo: no logo asset supplied -> components fall back to the text mark
 };
+
+// WBP's own company emblem (not a product brand) — used e.g. in the email header.
+export const WBP_LOGO = '/logos/wbp.png';
 
 export const brandLogo = (b) =>
   (b && (BRAND_LOGOS[norm(b.id)] || BRAND_LOGOS[norm(b.short)] || BRAND_LOGOS[norm(b.name)])) || null;

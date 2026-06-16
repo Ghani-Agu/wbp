@@ -15,7 +15,7 @@ function previewHtml({ subject, preheader, body }) {
   <table width="100%" cellpadding="0" cellspacing="0" style="padding:20px 10px"><tr><td align="center">
     <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#fff;border:1px solid #ece8e2;border-radius:16px;overflow:hidden">
       <tr><td style="padding:20px 26px;border-bottom:1px solid #ece8e2">
-        <span style="display:inline-block;width:28px;height:28px;background:#FF5A1F;color:#fff;border-radius:8px;text-align:center;line-height:28px;font-weight:bold;vertical-align:middle">W</span>
+        <img src="/logos/wbp.png" width="30" height="30" alt="WBP" style="vertical-align:middle;border-radius:6px">
         <span style="font-weight:bold;font-size:15px;vertical-align:middle;padding:0 8px">World Business Plus</span>
       </td></tr>
       <tr><td style="padding:26px;font-size:15px;line-height:1.6">${body || '<p style="color:#9a9087">(corps de l’e-mail vide — saisissez du HTML à gauche)</p>'}</td></tr>
