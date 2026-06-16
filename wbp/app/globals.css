@@ -10,7 +10,7 @@
 
 /* Equal-size cards: categories ("Par catégorie") + brands ("Marques que nous distribuons") */
 .cat-grid, .brand-grid { grid-auto-rows: 1fr; align-items: stretch; }
-.cat-card, .brand-card { height: 100%; }
+.cat-card, .brand-card { height: 100%; width: 100%; }   /* buttons shrink to content by default — force full cell width */
 .cat-card .cat-foot { margin-top: auto; }
 .brand-card .brand-card-name { flex: 1 1 auto; }
 
