@@ -14,11 +14,13 @@
 .cat-card .cat-foot { margin-top: auto; }
 .brand-card .brand-card-name { flex: 1 1 auto; }
 
-/* NOTE: do NOT put overflow-x (hidden/clip) on <html>. On iOS Safari that makes
-   position:fixed elements (the bottom nav) detach from the viewport and scroll with
-   the page ("stuck in the middle"). Horizontal overflow is instead prevented at the
-   source (the mobile header fit + the catalogue grid using minmax(0,1fr)). The body's
-   original overflow-x:hidden stays as a harmless catch-all and does not break fixed. */
+/* iOS Safari: overflow-x (hidden OR clip) on <html> OR <body> makes position:fixed
+   elements (the bottom nav) detach from the viewport and scroll with the page
+   ("stuck mid-screen on scroll down, snaps back on scroll up"). So we force BOTH back
+   to visible and prevent horizontal overflow at the SOURCE instead (mobile header fit +
+   catalogue grid using minmax(0,1fr)). This overrides body{overflow-x:hidden} from
+   styles.css. Verified: no horizontal overflow on catalog / home / brands at 360–390px. */
+html, body { overflow-x: visible; }
 
 /* Mobile header: keep the icon row inside the viewport. It was 455px wide on a 390px
    screen (the desktop-only account icon was showing + loose gaps), which caused a
