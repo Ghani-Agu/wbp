@@ -297,3 +297,31 @@ html, body { overflow-x: visible; }
   .cart-foot { position: sticky; bottom: 0; padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
   .cart-foot .btn { height: 50px; font-size: 14.5px; }
 }
+
+/* ============================================================================
+   BRAND & CLIENT LOGOS (brand cards + "trusted by" slider)
+   ============================================================================ */
+/* Client trust slider: clean white logo chips so every logo (transparent or
+   white-on-transparent) stays visible regardless of section background. */
+.cmarquee-track .client-logo {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  height: 66px; min-width: 156px; padding: 14px 24px;
+  background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px;
+  box-shadow: var(--sh-1);
+}
+.client-logo img { max-height: 38px; max-width: 132px; width: auto; object-fit: contain; display: block; }
+
+/* Home brand showcase card */
+.brand-card-logo { display: flex; align-items: center; justify-content: center; height: 46px; margin-bottom: 8px; }
+.brand-card-logo img { max-height: 38px; max-width: 124px; object-fit: contain; }
+
+/* Brands page card */
+.brandx-logo { display: flex; align-items: center; height: 46px; min-width: 92px; }
+.brandx-logo img { max-height: 42px; max-width: 150px; object-fit: contain; }
+
+@media (max-width: 760px) {
+  .cmarquee-track .client-logo { height: 56px; min-width: 124px; padding: 11px 16px; }
+  .client-logo img { max-height: 30px; max-width: 100px; }
+  .brand-card-logo { height: 38px; margin-bottom: 5px; }
+  .brand-card-logo img { max-height: 30px; max-width: 92px; }
+}

@@ -3,6 +3,7 @@ import React from 'react';
 import { useApp } from '@/components/ctx';
 import { Reveal, Kicker, Icon, SectionHead, ProductImage, useCountUp } from '@/components/primitives';
 import { CTABand } from '@/components/pages/Home';
+import { CLIENTS } from '@/lib/logos';
 
 function AboutStat({ n, suf, label }) {
   const [ref, v] = useCountUp(n, 1500);
@@ -58,7 +59,9 @@ export default function About() {
       </section>
       <section className="sec sec-clients">
         <div className="wrap"><Reveal className="clients-head"><Kicker icon="badge">{t('sec_client_kicker')}</Kicker><h2 className="sec-title">{t('sectors_t')}</h2><p className="sec-sub">{t('clients_lead')}</p></Reveal></div>
-        <div className="cmarquee"><div className="cmarquee-track">{[...wbp.clients, ...wbp.clients].map((c, i) => <span className="client-chip" key={i}>{c}</span>)}</div></div>
+        <div className="cmarquee"><div className="cmarquee-track">{[...CLIENTS, ...CLIENTS].map((c, i) => (
+          <span className="client-logo" key={i} title={c.name}><img src={c.logo} alt={c.name} loading="lazy" /></span>
+        ))}</div></div>
       </section>
       <CTABand />
     </main>

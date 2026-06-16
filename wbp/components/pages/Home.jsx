@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useApp } from '@/components/ctx';
 import { Reveal, Kicker, Btn, Icon, SectionHead, useCountUp } from '@/components/primitives';
 import ProductCard from '@/components/ProductCard';
+import { brandLogo, CLIENTS } from '@/lib/logos';
 
 function HeroStat({ n, suf, label }) {
   const [ref, v] = useCountUp(n, 1500);
@@ -137,7 +138,9 @@ function BrandsShowcase() {
           {wbp.brands.map((b, i) => (
             <Reveal key={b.id} delay={(i % 4) * 55}>
               <button className="brand-card" style={{ '--bc': b.color }} onClick={() => nav('catalog', { brand: b.id })}>
-                <span className="brand-card-mark">{b.short.slice(0, 2)}</span>
+                {brandLogo(b)
+                  ? <span className="brand-card-logo"><img src={brandLogo(b)} alt={b.name} loading="lazy" /></span>
+                  : <span className="brand-card-mark">{b.short.slice(0, 2)}</span>}
                 <span className="brand-card-name">{b.name}</span>
                 <span className="brand-card-go"><Icon name="arrow" size={15} /></span>
               </button>
@@ -150,14 +153,16 @@ function BrandsShowcase() {
 }
 
 function ClientStrip() {
-  const { t, wbp } = useApp();
-  const row = [...wbp.clients, ...wbp.clients];
+  const { t } = useApp();
+  const row = [...CLIENTS, ...CLIENTS];
   return (
     <section className="sec sec-clients">
       <div className="wrap">
         <Reveal className="clients-head"><Kicker icon="badge">{t('sec_client_kicker')}</Kicker><h2 className="sec-title">{t('sec_client_title')}</h2></Reveal>
       </div>
-      <div className="cmarquee"><div className="cmarquee-track">{row.map((c, i) => <span className="client-chip" key={i}>{c}</span>)}</div></div>
+      <div className="cmarquee"><div className="cmarquee-track">{row.map((c, i) => (
+        <span className="client-logo" key={i} title={c.name}><img src={c.logo} alt={c.name} loading="lazy" /></span>
+      ))}</div></div>
     </section>
   );
 }

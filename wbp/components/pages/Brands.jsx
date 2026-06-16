@@ -2,6 +2,7 @@
 import React from 'react';
 import { useApp } from '@/components/ctx';
 import { Reveal, Icon } from '@/components/primitives';
+import { brandLogo } from '@/lib/logos';
 
 export default function Brands() {
   const { t, lang, nav, wbp } = useApp();
@@ -22,7 +23,9 @@ export default function Brands() {
               <Reveal key={b.id} delay={(i % 2) * 70}>
                 <div className="brandx" style={{ '--bc': b.color }}>
                   <div className="brandx-head">
-                    <span className="brandx-mark">{b.short.slice(0, 2)}</span>
+                    {brandLogo(b)
+                      ? <span className="brandx-logo"><img src={brandLogo(b)} alt={b.name} loading="lazy" /></span>
+                      : <span className="brandx-mark">{b.short.slice(0, 2)}</span>}
                     <div><h3>{b.name}</h3><span className="brandx-count">{count} {t('products_count')}</span></div>
                   </div>
                   <p className="brandx-desc">{b.desc[lang] || b.desc.fr}</p>
