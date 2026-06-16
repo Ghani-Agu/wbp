@@ -8,7 +8,8 @@ import { signOutAction } from '@/app/admin/actions';
 const GROUPS = [
   { items: [['/admin', 'Tableau de bord', 'grid'], ['/admin/analytics', 'Analytics', 'chart']] },
   { label: 'Catalogue', items: [['/admin/products', 'Produits', 'box'], ['/admin/brands', 'Marques', 'badge'], ['/admin/categories', 'Catégories', 'layers']] },
-  { label: 'Activité', items: [['/admin/quotes', 'Demandes de devis', 'cart', 'quotes'], ['/admin/messages', 'Messages', 'mail', 'messages'], ['/admin/reviews', 'Avis', 'star', 'reviews'], ['/admin/subscribers', 'Newsletter', 'user']] },
+  { label: 'Activité', items: [['/admin/quotes', 'Demandes de devis', 'cart', 'quotes'], ['/admin/messages', 'Messages', 'mail', 'messages'], ['/admin/reviews', 'Avis', 'star', 'reviews']] },
+  { label: 'E-mailing', items: [['/admin/subscribers', 'Abonnés', 'user'], ['/admin/campaigns', 'Campagnes', 'mail']] },
   { label: 'Site', items: [['/admin/settings', 'Paramètres', 'cog']] },
 ];
 

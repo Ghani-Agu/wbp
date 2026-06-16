@@ -1,7 +1,12 @@
 'use server';
+import { randomUUID } from 'node:crypto';
 import { createAdminClient, hasSupabase } from '@/lib/supabase/server';
+import { sendEmail, siteUrl } from '@/lib/email/send';
+import { confirmEmailHtml } from '@/lib/email/template';
 
 const str = (v, max = 2000) => (v == null ? null : String(v).slice(0, max).trim() || null);
+const isEmail = (e) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e || '');
+const normLang = (l) => (['fr', 'en', 'ar'].includes(l) ? l : 'fr');
 
 export async function submitQuote(payload) {
   const row = {
@@ -49,14 +54,57 @@ export async function submitReview(payload) {
   return { ok: true, stored: true };
 }
 
-export async function subscribeNewsletter(email) {
-  const e = str(email, 200);
-  if (!e || !e.includes('@')) return { ok: false, error: 'invalid' };
+// Double opt-in: create/refresh a PENDING subscriber and email a confirmation link.
+export async function subscribeNewsletter(email, lang = 'fr') {
+  const e = (str(email, 200) || '').toLowerCase();
+  if (!isEmail(e)) return { ok: false, error: 'invalid' };
+  const L = normLang(lang);
+  if (!hasSupabase()) return { ok: true, stored: false, pending: true };
+  const sb = createAdminClient();
+  const { data: existing } = await sb
+    .from('newsletter_subscribers').select('id,status,token').eq('email', e).maybeSingle();
+  if (existing && existing.status === 'subscribed') return { ok: true, stored: true, already: true };
+  const token = existing?.token || randomUUID().replace(/-/g, '');
+  const { error } = await sb
+    .from('newsletter_subscribers')
+    .upsert({ email: e, status: 'pending', token, lang: L, source: 'website' }, { onConflict: 'email' });
+  if (error) return { ok: false, error: error.message };
+  const confirmUrl = `${siteUrl()}/newsletter/confirm?token=${token}&lang=${L}`;
+  const subject = L === 'ar' ? 'أكد اشتراكك — World Business Plus'
+    : L === 'en' ? 'Confirm your subscription — World Business Plus'
+    : 'Confirmez votre inscription — World Business Plus';
+  await sendEmail({ to: e, subject, html: confirmEmailHtml({ confirmUrl, lang: L }) });
+  return { ok: true, stored: true, pending: true };
+}
+
+// Double opt-in confirmation (token from the confirmation email link).
+export async function confirmSubscription(token) {
+  const tk = str(token, 80);
+  if (!tk) return { ok: false, error: 'invalid' };
   if (!hasSupabase()) return { ok: true, stored: false };
   const sb = createAdminClient();
-  const { error } = await sb.from('newsletter_subscribers').upsert({ email: e }, { onConflict: 'email', ignoreDuplicates: true });
+  const { data, error } = await sb
+    .from('newsletter_subscribers')
+    .update({ status: 'subscribed', confirmed_at: new Date().toISOString(), unsubscribed_at: null })
+    .eq('token', tk).select('email').maybeSingle();
   if (error) return { ok: false, error: error.message };
-  return { ok: true, stored: true };
+  if (!data) return { ok: false, error: 'notfound' };
+  return { ok: true, email: data.email };
+}
+
+// One-click unsubscribe (token from the email footer link).
+export async function unsubscribeByToken(token) {
+  const tk = str(token, 80);
+  if (!tk) return { ok: false, error: 'invalid' };
+  if (!hasSupabase()) return { ok: true, stored: false };
+  const sb = createAdminClient();
+  const { data, error } = await sb
+    .from('newsletter_subscribers')
+    .update({ status: 'unsubscribed', unsubscribed_at: new Date().toISOString() })
+    .eq('token', tk).select('email').maybeSingle();
+  if (error) return { ok: false, error: error.message };
+  if (!data) return { ok: false, error: 'notfound' };
+  return { ok: true, email: data.email };
 }
 
 // ---------- Analytics ----------

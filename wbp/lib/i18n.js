@@ -58,6 +58,8 @@
       foot_tag: "Protégez, Affichez, Innovez ! Avec World Business Plus, l'avenir est entre vos mains !",
       foot_shop: 'Boutique', foot_company: 'Société', foot_support: 'Support', foot_legal: 'Légal',
       foot_newsletter: 'Restez informé', foot_news_sub: 'Nouveautés produits et offres, une fois par mois.', foot_sub: "S'abonner", foot_subscribed: 'Inscrit ✓',
+      foot_check_email: 'Vérifiez votre boîte mail pour confirmer votre inscription.',
+      nl_kicker: 'Newsletter', nl_title: 'Recevez nos nouveautés et offres', nl_sub: 'Inscrivez-vous pour être informé des nouveaux produits, promotions et actualités de World Business Plus.', nl_ph: 'Votre adresse e-mail', nl_err: 'Une erreur est survenue. Réessayez.',
       rights: 'Tous droits réservés.', agreed: "Organisme agréé par l'État", quote_model: 'Modèle sur devis — B2B',
     },
     en: {
@@ -111,6 +113,8 @@
       foot_tag: 'Protect, Display, Innovate! With World Business Plus, the future is in your hands!',
       foot_shop: 'Shop', foot_company: 'Company', foot_support: 'Support', foot_legal: 'Legal',
       foot_newsletter: 'Stay informed', foot_news_sub: 'New products and offers, once a month.', foot_sub: 'Subscribe', foot_subscribed: 'Subscribed ✓',
+      foot_check_email: 'Check your inbox to confirm your subscription.',
+      nl_kicker: 'Newsletter', nl_title: 'Get our new products & offers', nl_sub: 'Subscribe to hear about new products, promotions and news from World Business Plus.', nl_ph: 'Your email address', nl_err: 'Something went wrong. Please try again.',
       rights: 'All rights reserved.', agreed: 'State-approved body', quote_model: 'Quote model — B2B',
     },
     ar: {
@@ -164,6 +168,8 @@
       foot_tag: 'احمِ، اعرض، ابتكر! مع World Business Plus، المستقبل بين يديك!',
       foot_shop: 'المتجر', foot_company: 'الشركة', foot_support: 'الدعم', foot_legal: 'قانوني',
       foot_newsletter: 'ابقَ على اطلاع', foot_news_sub: 'منتجات وعروض جديدة، مرة كل شهر.', foot_sub: 'اشترك', foot_subscribed: 'تم الاشتراك ✓',
+      foot_check_email: 'تحقق من بريدك لتأكيد اشتراكك.',
+      nl_kicker: 'النشرة البريدية', nl_title: 'احصل على منتجاتنا وعروضنا الجديدة', nl_sub: 'اشترك لتصلك أخبار المنتجات الجديدة والعروض من World Business Plus.', nl_ph: 'بريدك الإلكتروني', nl_err: 'حدث خطأ ما. حاول مرة أخرى.',
       rights: 'جميع الحقوق محفوظة.', agreed: 'هيئة معتمدة من الدولة', quote_model: 'نموذج حسب الطلب — B2B',
     },
   };

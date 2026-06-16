@@ -3,6 +3,8 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { createAdminClient, createClient } from '@/lib/supabase/server';
 import { requireAdmin } from '@/lib/auth';
+import { sendEmail, siteUrl } from '@/lib/email/send';
+import { wrapEmail, rewriteLinksForTracking, trackingPixel } from '@/lib/email/template';
 
 const s = (v, max = 4000) => (v == null || v === '' ? null : String(v).slice(0, max));
 
@@ -129,4 +131,85 @@ export async function deleteClient(id) {
   await sb.from('clients').delete().eq('id', id);
   revalidatePath('/admin/settings'); revalidatePath('/', 'layout');
   return { ok: true };
+}
+
+// ---------- Email campaigns ----------
+export async function createCampaign() {
+  await requireAdmin();
+  const sb = createAdminClient();
+  const { data, error } = await sb.from('email_campaigns')
+    .insert({ subject: 'Nouvelle campagne', body_html: '' }).select('id').single();
+  if (error) throw new Error(error.message);
+  redirect(`/admin/campaigns/${data.id}`);
+}
+
+export async function updateCampaign(id, p) {
+  await requireAdmin();
+  const sb = createAdminClient();
+  const row = {
+    subject: s(p.subject, 300) || 'Sans objet',
+    preheader: s(p.preheader, 300),
+    body_html: s(p.body_html, 100000) || '',
+    updated_at: new Date().toISOString(),
+  };
+  const { error } = await sb.from('email_campaigns').update(row).eq('id', s(id, 60));
+  if (error) return { ok: false, error: error.message };
+  revalidatePath(`/admin/campaigns/${id}`); revalidatePath('/admin/campaigns');
+  return { ok: true };
+}
+
+export async function deleteCampaign(id) {
+  await requireAdmin();
+  const sb = createAdminClient();
+  await sb.from('email_campaigns').delete().eq('id', s(id, 60));
+  revalidatePath('/admin/campaigns');
+  return { ok: true };
+}
+
+function renderCampaignHtml(campaign, { unsubscribeUrl, sendId }) {
+  let body = campaign.body_html || '';
+  if (sendId) body = rewriteLinksForTracking(body, sendId);
+  body += trackingPixel(sendId);
+  return wrapEmail({ title: campaign.subject, preheader: campaign.preheader, bodyHtml: body, unsubscribeUrl, lang: 'fr' });
+}
+
+export async function sendTestCampaign(id, email) {
+  await requireAdmin();
+  const to = s(email, 200);
+  if (!to || !to.includes('@')) return { ok: false, error: 'E-mail invalide' };
+  const sb = createAdminClient();
+  const { data: c } = await sb.from('email_campaigns').select('*').eq('id', s(id, 60)).single();
+  if (!c) return { ok: false, error: 'Campagne introuvable' };
+  const html = renderCampaignHtml(c, { unsubscribeUrl: `${siteUrl()}/newsletter/unsubscribe?token=TEST`, sendId: null });
+  const r = await sendEmail({ to, subject: `[TEST] ${c.subject}`, html });
+  return r.ok ? { ok: true, dev: !!r.dev } : { ok: false, error: r.error };
+}
+
+export async function sendCampaign(id) {
+  await requireAdmin();
+  const sb = createAdminClient();
+  const cid = s(id, 60);
+  const { data: c } = await sb.from('email_campaigns').select('*').eq('id', cid).single();
+  if (!c) return { ok: false, error: 'Campagne introuvable' };
+  if (c.status === 'sent') return { ok: false, error: 'Campagne déjà envoyée' };
+  const { data: subs } = await sb.from('newsletter_subscribers')
+    .select('id,email,token,lang').eq('status', 'subscribed');
+  const list = subs || [];
+  await sb.from('email_campaigns').update({ status: 'sending' }).eq('id', cid);
+  let sent = 0, failed = 0;
+  for (const sub of list) {
+    // Insert the send row first (unique on campaign+email) to dedupe and get a tracking id.
+    const { data: srow, error: insErr } = await sb.from('email_campaign_sends')
+      .insert({ campaign_id: cid, subscriber_id: sub.id, email: sub.email }).select('id').single();
+    if (insErr || !srow) continue; // already sent to this address
+    const unsubscribeUrl = `${siteUrl()}/newsletter/unsubscribe?token=${sub.token}&lang=${sub.lang || 'fr'}`;
+    const html = renderCampaignHtml(c, { unsubscribeUrl, sendId: srow.id });
+    const r = await sendEmail({ to: sub.email, subject: c.subject, html, headers: { 'List-Unsubscribe': `<${unsubscribeUrl}>` } });
+    if (r.ok) { sent++; }
+    else { failed++; await sb.from('email_campaign_sends').update({ status: 'failed', error: s(r.error, 300) }).eq('id', srow.id); }
+  }
+  await sb.from('email_campaigns')
+    .update({ status: 'sent', sent_at: new Date().toISOString(), sent_count: sent }).eq('id', cid);
+  revalidatePath(`/admin/campaigns/${id}`); revalidatePath('/admin/campaigns');
+  return { ok: true, sent, failed, total: list.length };
 }

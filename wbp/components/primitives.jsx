@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { ICON_PATHS } from '@/lib/icons';
 import { useApp } from '@/components/ctx';
+import { brandLogo } from '@/lib/logos';
 
 // ── utils ──────────────────────────────────────────────────────────────────
 export const fmtRating = (n) => (Math.round(n * 10) / 10).toFixed(1);
@@ -131,12 +132,15 @@ export function ProductImage({ product, size = 'card' }) {
       </div>
     );
   }
+  const logo = brand ? brandLogo(brand) : null;
   return (
-    <div className="prod-img" style={{ '--tint': tint }}>
+    <div className={`prod-img ${big ? 'prod-img-hero' : ''}`} style={{ '--tint': tint }}>
       <div className="prod-img-grid" />
       <div className="prod-img-glow" />
-      <div className="prod-img-glyph"><Icon name={glyph} size={big ? 132 : 72} stroke={1.2} /></div>
-      <span className="prod-img-brand">{brand ? brand.short : ''}</span>
+      <div className="prod-img-glyph"><Icon name={glyph} size={big ? 116 : 60} stroke={1.2} /></div>
+      {logo
+        ? <img className="prod-img-logo" src={logo} alt={brand.name} loading="lazy" />
+        : <span className="prod-img-brand">{brand ? brand.short : ''}</span>}
       <span className="prod-img-code">{product.code}</span>
     </div>
   );

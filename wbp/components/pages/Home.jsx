@@ -4,6 +4,7 @@ import { useApp } from '@/components/ctx';
 import { Reveal, Kicker, Btn, Icon, SectionHead, useCountUp } from '@/components/primitives';
 import ProductCard from '@/components/ProductCard';
 import { brandLogo, CLIENTS } from '@/lib/logos';
+import NewsletterCTA from '@/components/NewsletterCTA';
 
 function HeroStat({ n, suf, label }) {
   const [ref, v] = useCountUp(n, 1500);
@@ -190,7 +191,7 @@ export function CTABand() {
 export default function Home() {
   return (
     <main className="page-home">
-      <Hero /><ClientStrip /><CategoriesGrid /><BestSellers /><BrandsShowcase /><WhyWBP /><CTABand />
+      <Hero /><ClientStrip /><CategoriesGrid /><BestSellers /><BrandsShowcase /><WhyWBP /><NewsletterCTA /><CTABand />
     </main>
   );
 }

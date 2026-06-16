@@ -45,3 +45,6 @@ next-env.d.ts
 
 # raw product image source (optimized copies live in public/products)
 /images/
+
+# dev email outbox (rendered emails written when RESEND_API_KEY is unset)
+/.email-outbox/

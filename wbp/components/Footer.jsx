@@ -41,14 +41,18 @@ export default function Footer() {
           <div className="ftr-col ftr-news">
             <h4>{t('foot_newsletter')}</h4>
             <p>{t('foot_news_sub')}</p>
-            <form className="ftr-form" onSubmit={async (e) => {
-              e.preventDefault();
-              try { await subscribeNewsletter(email); } catch { /* ignore */ }
-              setSub(true);
-            }}>
-              <input type="email" required placeholder="email@exemple.dz" value={email} onChange={(e) => setEmail(e.target.value)} />
-              <button type="submit">{sub ? t('foot_subscribed') : t('foot_sub')}</button>
-            </form>
+            {sub ? (
+              <p className="ftr-news-ok"><Icon name="check" size={15} /> {t('foot_check_email')}</p>
+            ) : (
+              <form className="ftr-form" onSubmit={async (e) => {
+                e.preventDefault();
+                try { await subscribeNewsletter(email, lang); } catch { /* ignore */ }
+                setSub(true);
+              }}>
+                <input type="email" required placeholder="email@exemple.dz" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <button type="submit">{t('foot_sub')}</button>
+              </form>
+            )}
           </div>
         </div>
       </div>

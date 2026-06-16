@@ -202,16 +202,15 @@ export default function Product({ product, initialReviews }) {
               </div>
               <span className="pp-brand-chip" style={{ '--bc': brand.color }}>{brand.short}</span>
             </Reveal>
-            <div className="pp-thumbs">
-              {(gallery || [0, 1, 2, 3]).map((g, i) => (
-                <button key={i} className={`pp-thumb ${activeShot === i ? 'on' : ''}`} onClick={() => setActiveShot(i)}>
-                  {gallery
-                    ? <img src={g} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#fff' }} />
-                    : <ProductImage product={product} />}
-                  {!gallery && <span className="pp-thumb-n">{i === 0 ? '360°' : `0${i + 1}`}</span>}
-                </button>
-              ))}
-            </div>
+            {gallery && gallery.length > 1 && (
+              <div className="pp-thumbs">
+                {gallery.map((g, i) => (
+                  <button key={i} className={`pp-thumb ${activeShot === i ? 'on' : ''}`} onClick={() => setActiveShot(i)}>
+                    <img src={g} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#fff' }} />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="pp-info">
             <Reveal as="div" className="pp-info-head">
@@ -249,9 +248,9 @@ export default function Product({ product, initialReviews }) {
               </div>
             </Reveal>
             <Reveal className="pp-trust" delay={140}>
-              <div className="pp-trust-item"><Icon name="badge" size={18} /><span>{t('agreed')}</span></div>
-              <div className="pp-trust-item"><Icon name="headset" size={18} /><span>{t('why3_t')}</span></div>
-              <div className="pp-trust-item"><Icon name="truck" size={18} /><span>{t('why4_t')}</span></div>
+              <div className="pp-trust-item"><span className="pp-trust-ic"><Icon name="badge" size={17} /></span><span>{t('agreed')}</span></div>
+              <div className="pp-trust-item"><span className="pp-trust-ic"><Icon name="headset" size={17} /></span><span>{t('why3_t')}</span></div>
+              <div className="pp-trust-item"><span className="pp-trust-ic"><Icon name="truck" size={17} /></span><span>{t('why4_t')}</span></div>
             </Reveal>
           </div>
         </div>
@@ -302,7 +301,7 @@ export default function Product({ product, initialReviews }) {
           <Icon name={added ? 'check' : 'cart'} size={19} /><span>{added ? t('added') : t('add_to_cart')}</span>
         </button>
         <a className="btn btn-whatsapp btn-lg" href={waLink} target="_blank" rel="noopener noreferrer">
-          <Icon name="whatsapp" size={19} /><span>{t('shop_whatsapp')}</span>
+          <Icon name="whatsapp" size={19} /><span>WhatsApp</span>
         </a>
       </div>
       {ficheOpen && <FicheModal product={product} brand={brand} onClose={() => setFicheOpen(false)} />}
