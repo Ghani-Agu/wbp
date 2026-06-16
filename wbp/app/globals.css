@@ -121,3 +121,24 @@
   }
   .catchip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
 }
+
+/* ===== Mobile fixes: no grid overflow + compact page headers ===== */
+/* min-width:0 lets 1fr columns shrink instead of expanding to content (prevents giant cards/overflow) */
+.prod-grid > *, .cat-grid > *, .brand-grid > *, .why-grid > * { min-width: 0; }
+@media (max-width: 700px) {
+  .prod-grid, .cat-grid, .brand-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cat-hero { padding: 16px 0 14px; }
+  .cat-hero-title { font-size: 23px; }
+  .cat-hero-sub { font-size: 13.5px; margin-top: 8px; }
+  .crumbs { font-size: 12px; }
+  .cat-count-row { font-size: 13px; margin-bottom: 10px; }
+  .cat-bar { gap: 8px; margin-bottom: 10px; }
+  .cat-search { height: 44px; }
+  /* about / contact page headers */
+  .about-h1 { font-size: 26px; }
+  .about-lead { font-size: 14px; }
+  .about-hero { padding-top: 8px; }
+}
+@media (max-width: 380px) {
+  .cat-hero-title { font-size: 21px; }
+}
