@@ -414,6 +414,7 @@ body[data-cards="glass"] .pcard,body[data-cards="glass"] .cat-card,body[data-car
   .ftr-cols{grid-template-columns:1fr 1fr}
 }
 @media(max-width:460px){
-  .prod-grid,.cat-grid,.brand-grid,.why-grid,.why-grid-3{grid-template-columns:1fr}
+  /* product/category/brand grids stay 2-up on phones — see mobile catalog block in globals.css */
+  .why-grid,.why-grid-3{grid-template-columns:1fr}
   .hero-stats{gap:18px}
 }

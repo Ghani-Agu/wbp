@@ -142,3 +142,80 @@
 @media (max-width: 380px) {
   .cat-hero-title { font-size: 21px; }
 }
+
+/* ============================================================================
+   MOBILE CATALOG v2 — authoritative, dense app-like shopping layout.
+   Placed last so it wins the cascade over the older scattered rules above.
+   Goal: tight 2-up product grid, compact cards, slim sticky toolbar.
+   ============================================================================ */
+@media (max-width: 760px) {
+  /* Reclaim horizontal space: tighter page gutters on the catalog */
+  .page-catalog .wrap { padding-inline: 12px; }
+
+  /* Slim hero — don't eat the first screen with a big banner */
+  .page-catalog .cat-hero { padding: 14px 0 12px; }
+  .page-catalog .cat-hero::before { display: none; }   /* drop the heavy glow blob */
+  .cat-hero-title { font-size: 22px; line-height: 1.15; }
+  .cat-hero-sub { font-size: 13px; margin-top: 6px; -webkit-line-clamp: 2;
+    display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+  .crumbs { font-size: 11.5px; }
+
+  /* Catalog layout: single column, no desktop sidebar, no big top padding */
+  .cat-layout { grid-template-columns: 1fr; padding-top: 14px; padding-bottom: 84px; }
+  .cat-side { display: none; }
+
+  /* ---- Sticky, compact toolbar ---------------------------------------- */
+  .cat-bar {
+    position: sticky; top: 70px; z-index: 40;   /* sits just below the 70px sticky header */
+    display: grid; grid-template-columns: 1fr auto; gap: 8px;
+    margin: 0 -12px 10px; padding: 8px 12px;
+    background: color-mix(in oklab, var(--bg) 90%, transparent);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .cat-search { grid-column: 1 / -1; height: 40px; min-width: 0; padding: 0 12px; font-size: 14px; }
+  .cat-search input { font-size: 14px; }
+  .cat-search button { width: 22px; height: 22px; }
+  .cat-filt-toggle { display: inline-flex; height: 38px; padding: 0 12px; font-size: 13px; gap: 6px; }
+  .cat-sort { height: 38px; padding: 0 10px; }
+  .cat-sort select { font-size: 13px; font-weight: 600; }
+
+  /* Category chips scroll horizontally just under the toolbar */
+  .catchips { display: flex; gap: 7px; overflow-x: auto; padding: 0 0 10px; margin: 0 0 2px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .catchips::-webkit-scrollbar { display: none; }
+  .catchip { flex: 0 0 auto; white-space: nowrap; padding: 7px 13px; font-size: 12.5px; }
+
+  .cat-count-row { font-size: 12.5px; margin: 0 0 10px; }
+
+  /* ---- Dense 2-up product grid ---------------------------------------- */
+  .prod-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .prod-grid > * { min-width: 0; }
+
+  /* Compact product card */
+  .pcard-media { aspect-ratio: 1 / 1; }
+  .pcard-body { padding: 8px 9px 10px; gap: 3px; }
+  .pcard-cat { font-size: 9px; letter-spacing: .04em; }
+  .pcard-title { font-size: 12.5px; line-height: 1.22; min-height: 2.2em; -webkit-line-clamp: 2; }
+  .pcard-meta { gap: 5px; }
+  .pcard-rev { font-size: 9.5px; }
+  .pcard-foot { padding-top: 6px; margin-top: 6px; gap: 4px; }
+  .pcard-price { font-size: 12px; }
+  .pcard-go { font-size: 11px; gap: 2px; }
+  .pcard-go span { display: none; }                 /* arrow only */
+  .pcard-quick { opacity: 1; transform: none; width: 30px; height: 30px; bottom: 7px; inset-inline-end: 7px; }
+  .pcard-quick svg { width: 16px; height: 16px; }
+  .pbadge { top: 8px; inset-inline-start: 8px; font-size: 9px; padding: 4px 8px; }
+
+  /* Compact mobile filter panel when toggled open */
+  .cat-filters-mobile { padding: 14px; margin-bottom: 12px; }
+  .cat-filters { gap: 16px; }
+  .filt-opt { padding: 8px 10px; font-size: 13px; }
+}
+
+@media (max-width: 400px) {
+  .prod-grid { gap: 8px; }
+  .pcard-body { padding: 7px 8px 9px; }
+  .pcard-title { font-size: 12px; }
+  .cat-hero-title { font-size: 20px; }
+}
