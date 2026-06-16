@@ -14,9 +14,24 @@
 .cat-card .cat-foot { margin-top: auto; }
 .brand-card .brand-card-name { flex: 1 1 auto; }
 
-/* Defensive: never let a stray wide element trigger iOS "shrink to fit" zoom-out.
-   (body already clips overflow-x; lock the root too so the layout viewport stays = device width.) */
-html { overflow-x: clip; }
+/* NOTE: do NOT put overflow-x (hidden/clip) on <html>. On iOS Safari that makes
+   position:fixed elements (the bottom nav) detach from the viewport and scroll with
+   the page ("stuck in the middle"). Horizontal overflow is instead prevented at the
+   source (the mobile header fit + the catalogue grid using minmax(0,1fr)). The body's
+   original overflow-x:hidden stays as a harmless catch-all and does not break fixed. */
+
+/* Mobile header: keep the icon row inside the viewport. It was 455px wide on a 390px
+   screen (the desktop-only account icon was showing + loose gaps), which caused a
+   horizontal overflow that the old html overflow-x:clip was masking. */
+@media (max-width: 760px) {
+  .hdr-inner { gap: 8px; }
+  .only-desk { display: none; }            /* desktop-only account icon */
+  .hdr-right { gap: 3px; }
+  .hdr-right .icon-btn { width: 38px; }
+}
+@media (max-width: 520px) {
+  .logo-txt { display: none; }             /* compact brand mark on phones */
+}
 
 /* ===== Responsive sizing polish (header left as original) ===== */
 @media (max-width: 600px) {
