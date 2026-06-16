@@ -124,8 +124,11 @@ html { overflow-x: clip; }
     display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
   .crumbs { font-size: 11.5px; }
 
-  /* Catalog layout: single column, no desktop sidebar, room for the bottom bar */
-  .cat-layout { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 90px; }
+  /* Catalog layout: single column, no desktop sidebar, room for the bottom bar.
+     minmax(0,1fr) + min-width:0 are REQUIRED — a plain 1fr track grows to the
+     content's min-content and blows the grid out to ~1400px (giant 1-col cards). */
+  .cat-layout { grid-template-columns: minmax(0, 1fr); padding-top: 12px; padding-bottom: 90px; }
+  .cat-main { min-width: 0; }
   .cat-side { display: none; }
 
   /* ---- Sticky, compact toolbar ---------------------------------------- */
