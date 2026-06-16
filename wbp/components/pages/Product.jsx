@@ -297,6 +297,14 @@ export default function Product({ product, initialReviews }) {
         )}
         <section className="pp-reviews" ref={reviewsRef}><ReviewSystem product={product} initialReviews={initialReviews} /></section>
       </div>
+      <div className="pp-sticky-cta">
+        <button className="btn btn-primary btn-lg" onClick={() => { addToCart(product, qty); setAdded(true); setTimeout(() => setAdded(false), 1400); }}>
+          <Icon name={added ? 'check' : 'cart'} size={19} /><span>{added ? t('added') : t('add_to_cart')}</span>
+        </button>
+        <a className="btn btn-whatsapp btn-lg" href={waLink} target="_blank" rel="noopener noreferrer">
+          <Icon name="whatsapp" size={19} /><span>{t('shop_whatsapp')}</span>
+        </a>
+      </div>
       {ficheOpen && <FicheModal product={product} brand={brand} onClose={() => setFicheOpen(false)} />}
     </main>
   );

@@ -12,8 +12,12 @@ export default function Catalog() {
   const [minRating, setMinRating] = React.useState(0);
   const [sort, setSort] = React.useState('relevance');
   const [showFilters, setShowFilters] = React.useState(false);
+  const PAGE = 24; // mobile-friendly page size for "load more" pagination
+  const [visible, setVisible] = React.useState(PAGE);
 
   React.useEffect(() => { setCat(route.params.cat || 'all'); setBrand(route.params.brand || 'all'); setQ(route.params.q || ''); }, [route.params.cat, route.params.brand, route.params.q]);
+  // Reset the visible window whenever the result set changes (filter / search / sort).
+  React.useEffect(() => { setVisible(PAGE); }, [cat, brand, q, minRating, sort]);
 
   let list = wbp.products.filter((p) => {
     if (cat !== 'all' && p.cat !== cat) return false;
@@ -112,7 +116,17 @@ export default function Catalog() {
           {list.length === 0 ? (
             <div className="cat-empty"><Icon name="search" size={40} stroke={1.2} /><p>{t('no_results')}</p></div>
           ) : (
-            <div className="prod-grid">{list.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}</div>
+            <>
+              <div className="prod-grid">{list.slice(0, visible).map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}</div>
+              {visible < list.length && (
+                <div className="cat-more">
+                  <button className="cat-more-btn" onClick={() => setVisible((v) => v + PAGE)}>
+                    {t('load_more')} <Icon name="chevdown" size={16} />
+                  </button>
+                  <span className="cat-more-count">{Math.min(visible, list.length)} {t('showing_of')} {list.length}</span>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

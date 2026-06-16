@@ -11,6 +11,7 @@
       badge_best: 'Best-seller', badge_new: 'Nouveau', ref: 'Réf', from: 'Dès',
       reviews: 'avis', review_one: 'avis', similar: 'Produits similaires', categories: 'Catégories', brands: 'Nos marques',
       results: 'résultats', result_one: 'résultat', sort_by: 'Trier par', filters: 'Filtres', clear: 'Effacer', apply: 'Appliquer',
+      load_more: 'Voir plus de produits', showing_of: 'sur', back_to_top: 'Haut de page',
       sort_relevance: 'Pertinence', sort_rating: 'Mieux notés', sort_az: 'A → Z', sort_new: 'Nouveautés',
       all_categories: 'Toutes les catégories', all_brands: 'Toutes les marques', no_results: 'Aucun produit ne correspond.',
       // hero
@@ -70,6 +71,7 @@
       badge_best: 'Best seller', badge_new: 'New', ref: 'Ref', from: 'From',
       reviews: 'reviews', review_one: 'review', similar: 'Similar products', categories: 'Categories', brands: 'Our brands',
       results: 'results', result_one: 'result', sort_by: 'Sort by', filters: 'Filters', clear: 'Clear', apply: 'Apply',
+      load_more: 'Load more products', showing_of: 'of', back_to_top: 'Back to top',
       sort_relevance: 'Relevance', sort_rating: 'Top rated', sort_az: 'A → Z', sort_new: 'Newest',
       all_categories: 'All categories', all_brands: 'All brands', no_results: 'No products match your search.',
       hero_kicker: 'Security · Networks · Displays',
@@ -122,6 +124,7 @@
       badge_best: 'الأكثر مبيعاً', badge_new: 'جديد', ref: 'مرجع', from: 'من',
       reviews: 'تقييم', review_one: 'تقييم', similar: 'منتجات مشابهة', categories: 'الفئات', brands: 'علاماتنا',
       results: 'نتيجة', result_one: 'نتيجة', sort_by: 'ترتيب حسب', filters: 'تصفية', clear: 'مسح', apply: 'تطبيق',
+      load_more: 'عرض المزيد من المنتجات', showing_of: 'من', back_to_top: 'العودة إلى الأعلى',
       sort_relevance: 'الصلة', sort_rating: 'الأعلى تقييماً', sort_az: 'أ → ي', sort_new: 'الأحدث',
       all_categories: 'كل الفئات', all_brands: 'كل العلامات', no_results: 'لا توجد منتجات مطابقة.',
       hero_kicker: 'أمن · شبكات · شاشات',

@@ -14,6 +14,10 @@
 .cat-card .cat-foot { margin-top: auto; }
 .brand-card .brand-card-name { flex: 1 1 auto; }
 
+/* Defensive: never let a stray wide element trigger iOS "shrink to fit" zoom-out.
+   (body already clips overflow-x; lock the root too so the layout viewport stays = device width.) */
+html { overflow-x: clip; }
+
 /* ===== Responsive sizing polish (header left as original) ===== */
 @media (max-width: 600px) {
   .sec { padding: 46px 0; }
@@ -32,7 +36,6 @@
   .hero-stats { grid-template-columns: 1fr 1fr; display: grid; gap: 16px 14px; }
   .ftr-cols { grid-template-columns: 1fr; }
   .sec-title { font-size: 22px; }
-  .pp-actions { grid-template-columns: 1fr; }
 }
 
 /* ============================================================================
@@ -40,18 +43,7 @@
    ============================================================================ */
 @media (max-width: 700px) {
   /* Product, category & brand grids stay 2 columns — never one giant card */
-  .prod-grid, .cat-grid, .brand-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  /* Compact product cards */
-  .pcard-media { aspect-ratio: 1 / 1; }
-  .pcard-body { padding: 9px 10px 11px; gap: 4px; }
-  .pcard-cat { font-size: 9px; letter-spacing: .04em; }
-  .pcard-title { font-size: 12.5px; line-height: 1.25; min-height: 2.3em; }
-  .pcard-rev { font-size: 10px; }
-  .pcard-foot { padding-top: 7px; margin-top: 6px; gap: 4px; }
-  .pcard-price { font-size: 12px; }
-  .pcard-go span { display: none; }                 /* keep just the arrow */
-  .pcard-quick { opacity: 1; transform: none; width: 32px; height: 32px; bottom: 8px; inset-inline-end: 8px; }
+  .prod-grid, .cat-grid, .brand-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 
   /* Compact category tiles */
   .cat-card { padding: 13px; gap: 5px; }
@@ -69,16 +61,6 @@
 
   /* Best-sellers carousel: show ~2 per view so it feels like browsing */
   .car-track { grid-auto-columns: 46%; gap: 12px; }
-
-  /* Catalog tools row */
-  .cat-search { height: 42px; min-width: 0; }
-  .cat-sort select { font-size: 13px; }
-}
-
-@media (max-width: 380px) {
-  .prod-grid, .cat-grid, .brand-grid { gap: 9px; }
-  .pcard-body { padding: 8px 9px 10px; }
-  .car-track { grid-auto-columns: 62%; }
 }
 
 /* ===== App-like bottom navigation (mobile only) ===== */
@@ -122,100 +104,172 @@
   .catchip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
 }
 
-/* ===== Mobile fixes: no grid overflow + compact page headers ===== */
-/* min-width:0 lets 1fr columns shrink instead of expanding to content (prevents giant cards/overflow) */
+/* Let 1fr columns shrink instead of expanding to their content (prevents giant cards/overflow) */
 .prod-grid > *, .cat-grid > *, .brand-grid > *, .why-grid > * { min-width: 0; }
-@media (max-width: 700px) {
-  .prod-grid, .cat-grid, .brand-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cat-hero { padding: 16px 0 14px; }
-  .cat-hero-title { font-size: 23px; }
-  .cat-hero-sub { font-size: 13.5px; margin-top: 8px; }
-  .crumbs { font-size: 12px; }
-  .cat-count-row { font-size: 13px; margin-bottom: 10px; }
-  .cat-bar { gap: 8px; margin-bottom: 10px; }
-  .cat-search { height: 44px; }
-  /* about / contact page headers */
-  .about-h1 { font-size: 26px; }
-  .about-lead { font-size: 14px; }
-  .about-hero { padding-top: 8px; }
-}
-@media (max-width: 380px) {
-  .cat-hero-title { font-size: 21px; }
-}
 
 /* ============================================================================
-   MOBILE CATALOG v2 — authoritative, dense app-like shopping layout.
-   Placed last so it wins the cascade over the older scattered rules above.
-   Goal: tight 2-up product grid, compact cards, slim sticky toolbar.
+   MOBILE CATALOG v3 — dense, app-like shopping layout (authoritative).
+   Placed last so it wins the cascade. Goal: tight 2-up grid, short thumbnails,
+   compact cards, slim sticky toolbar, clean placeholders, "load more".
    ============================================================================ */
 @media (max-width: 760px) {
   /* Reclaim horizontal space: tighter page gutters on the catalog */
   .page-catalog .wrap { padding-inline: 12px; }
 
   /* Slim hero — don't eat the first screen with a big banner */
-  .page-catalog .cat-hero { padding: 14px 0 12px; }
+  .page-catalog .cat-hero { padding: 14px 0 10px; }
   .page-catalog .cat-hero::before { display: none; }   /* drop the heavy glow blob */
   .cat-hero-title { font-size: 22px; line-height: 1.15; }
   .cat-hero-sub { font-size: 13px; margin-top: 6px; -webkit-line-clamp: 2;
     display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
   .crumbs { font-size: 11.5px; }
 
-  /* Catalog layout: single column, no desktop sidebar, no big top padding */
-  .cat-layout { grid-template-columns: 1fr; padding-top: 14px; padding-bottom: 84px; }
+  /* Catalog layout: single column, no desktop sidebar, room for the bottom bar */
+  .cat-layout { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 90px; }
   .cat-side { display: none; }
 
   /* ---- Sticky, compact toolbar ---------------------------------------- */
   .cat-bar {
-    position: sticky; top: 70px; z-index: 40;   /* sits just below the 70px sticky header */
-    display: grid; grid-template-columns: 1fr auto; gap: 8px;
-    margin: 0 -12px 10px; padding: 8px 12px;
-    background: color-mix(in oklab, var(--bg) 90%, transparent);
+    position: sticky; top: 70px; z-index: 40;        /* sits just below the 70px sticky header */
+    display: grid; grid-template-columns: 1fr auto auto; gap: 8px;
+    margin: 0 -12px 8px; padding: 8px 12px;
+    background: color-mix(in oklab, var(--bg) 92%, transparent);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
-  .cat-search { grid-column: 1 / -1; height: 40px; min-width: 0; padding: 0 12px; font-size: 14px; }
-  .cat-search input { font-size: 14px; }
-  .cat-search button { width: 22px; height: 22px; }
-  .cat-filt-toggle { display: inline-flex; height: 38px; padding: 0 12px; font-size: 13px; gap: 6px; }
-  .cat-sort { height: 38px; padding: 0 10px; }
+  .cat-search { grid-column: 1 / -1; height: 42px; min-width: 0; padding: 0 12px; font-size: 14px; }
+  .cat-search input { font-size: 16px; }            /* 16px avoids iOS input zoom */
+  .cat-search button { width: 24px; height: 24px; }
+  .cat-filt-toggle { display: inline-flex; height: 40px; padding: 0 14px; font-size: 13px; gap: 6px; }
+  .cat-sort { height: 40px; padding: 0 10px; }
   .cat-sort select { font-size: 13px; font-weight: 600; }
 
   /* Category chips scroll horizontally just under the toolbar */
   .catchips { display: flex; gap: 7px; overflow-x: auto; padding: 0 0 10px; margin: 0 0 2px;
     scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .catchips::-webkit-scrollbar { display: none; }
-  .catchip { flex: 0 0 auto; white-space: nowrap; padding: 7px 13px; font-size: 12.5px; }
+  .catchip { flex: 0 0 auto; white-space: nowrap; padding: 8px 14px; font-size: 12.5px; }
 
   .cat-count-row { font-size: 12.5px; margin: 0 0 10px; }
 
   /* ---- Dense 2-up product grid ---------------------------------------- */
   .prod-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .prod-grid > * { min-width: 0; }
+  .pcard-wrap { transform: none !important; }        /* kill desktop tilt transform on touch */
 
-  /* Compact product card */
-  .pcard-media { aspect-ratio: 1 / 1; }
-  .pcard-body { padding: 8px 9px 10px; gap: 3px; }
+  /* Compact product card — short 4:3 thumbnail instead of a giant square panel */
+  .pcard { border-radius: 14px; box-shadow: 0 1px 3px rgba(22,18,14,.06); }
+  .pcard-media { aspect-ratio: 4 / 3; }
+  .pcard-body { padding: 8px 10px 10px; gap: 3px; }
   .pcard-cat { font-size: 9px; letter-spacing: .04em; }
-  .pcard-title { font-size: 12.5px; line-height: 1.22; min-height: 2.2em; -webkit-line-clamp: 2; }
+  .pcard-title { font-size: 12.5px; line-height: 1.25; min-height: 2.3em; -webkit-line-clamp: 2; font-weight: 600; }
   .pcard-meta { gap: 5px; }
   .pcard-rev { font-size: 9.5px; }
-  .pcard-foot { padding-top: 6px; margin-top: 6px; gap: 4px; }
-  .pcard-price { font-size: 12px; }
+  .pcard-foot { padding-top: 7px; margin-top: 6px; gap: 4px; }
+  .pcard-price { font-size: 12.5px; }
   .pcard-go { font-size: 11px; gap: 2px; }
-  .pcard-go span { display: none; }                 /* arrow only */
-  .pcard-quick { opacity: 1; transform: none; width: 30px; height: 30px; bottom: 7px; inset-inline-end: 7px; }
-  .pcard-quick svg { width: 16px; height: 16px; }
+  .pcard-go span { display: none; }                  /* arrow only */
   .pbadge { top: 8px; inset-inline-start: 8px; font-size: 9px; padding: 4px 8px; }
+
+  /* Add-to-quote: always-visible, thumb-friendly tap target on the thumbnail */
+  .pcard-quick {
+    opacity: 1; transform: none; width: 38px; height: 38px; bottom: 8px; inset-inline-end: 8px;
+    background: var(--accent); color: #fff; border-color: transparent; box-shadow: 0 4px 12px -4px var(--accent-glow);
+  }
+  .pcard-quick svg { width: 18px; height: 18px; }
+
+  /* ---- Clean neutral placeholder (kill the big blurry empty look) ------ */
+  .prod-img { background: radial-gradient(120% 100% at 50% 0%, color-mix(in oklab,var(--tint) 7%,var(--surface)) 0%, var(--surface) 70%); }
+  .prod-img-grid { background-size: 18px 18px; opacity: .5; }
+  .prod-img-glow { width: 52%; filter: blur(6px); opacity: .8; }
+  .prod-img-glyph svg { width: 56px; height: 56px; }
+  .prod-img-brand { top: 7px; inset-inline-start: 8px; font-size: 9.5px; padding: 3px 7px; }
+  .prod-img-code { display: none; }                  /* code already shown in card body context */
 
   /* Compact mobile filter panel when toggled open */
   .cat-filters-mobile { padding: 14px; margin-bottom: 12px; }
   .cat-filters { gap: 16px; }
-  .filt-opt { padding: 8px 10px; font-size: 13px; }
+  .filt-opt { padding: 9px 11px; font-size: 13px; }
+
+  /* ---- "Load more" pagination ----------------------------------------- */
+  .cat-more { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 18px 0 4px; }
+  .cat-more-count { font-size: 11.5px; color: var(--ink-3); }
 }
+
+/* "Load more" button (all sizes) */
+.cat-more { display: flex; flex-direction: column; align-items: center; gap: 9px; margin: 26px 0 6px; }
+.cat-more-btn {
+  display: inline-flex; align-items: center; gap: 7px; height: 46px; padding: 0 26px;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  font-family: var(--font-display); font-weight: 600; font-size: 14px; cursor: pointer;
+  box-shadow: var(--sh-1); transition: background .2s, border-color .2s, transform .15s;
+}
+.cat-more-btn:hover { border-color: var(--accent); color: var(--accent); }
+.cat-more-btn:active { transform: scale(.97); }
+.cat-more-count { font-size: 12px; color: var(--ink-3); }
 
 @media (max-width: 400px) {
   .prod-grid { gap: 8px; }
-  .pcard-body { padding: 7px 8px 9px; }
+  .pcard-body { padding: 7px 9px 9px; }
   .pcard-title { font-size: 12px; }
   .cat-hero-title { font-size: 20px; }
+  .prod-img-glyph svg { width: 50px; height: 50px; }
+}
+
+/* ============================================================================
+   MOBILE PRODUCT DETAIL — swipeable gallery + sticky add/devis CTA
+   ============================================================================ */
+@media (max-width: 760px) {
+  .page-product .wrap { padding-inline: 14px; }
+  .page-product { padding-bottom: calc(150px + env(safe-area-inset-bottom, 0px)); }
+
+  .pp-crumbs { font-size: 11.5px; }
+  .pp-top { gap: 18px; }
+
+  /* Thumbnails: horizontal, swipe-friendly scroll-snap row */
+  .pp-thumbs {
+    display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;
+    scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .pp-thumbs::-webkit-scrollbar { display: none; }
+  .pp-thumb { flex: 0 0 64px; width: 64px; height: 64px; scroll-snap-align: start; }
+
+  .pp-title { font-size: 22px; line-height: 1.18; }
+  .pp-tag { font-size: 13.5px; }
+
+  /* Bigger qty stepper tap targets */
+  .pp-qty button { width: 40px; height: 40px; }
+
+  /* In-card actions are replaced by the sticky bar on phones (avoid duplicate CTAs) */
+  .pp-price-card .pp-actions { display: none; }
+}
+
+/* Sticky add-to-quote + WhatsApp bar (rendered OUTSIDE any transformed ancestor so
+   position:fixed anchors to the viewport, not the Reveal card). Mobile only. */
+.pp-sticky-cta { display: none; }
+@media (max-width: 760px) {
+  .pp-sticky-cta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    position: fixed; inset-inline: 0; bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+    z-index: 110; padding: 10px 12px;
+    background: color-mix(in oklab, var(--bg) 94%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line); box-shadow: 0 -6px 20px -14px rgba(22,18,14,.28);
+  }
+  .pp-sticky-cta .btn { height: 50px; font-size: 14px; width: 100%; }
+  .pp-sticky-cta .btn span { white-space: nowrap; }
+}
+
+/* ============================================================================
+   MOBILE CART DRAWER — large tap targets + sticky order CTA
+   ============================================================================ */
+@media (max-width: 760px) {
+  .cart-drawer { width: min(440px, 100vw); }
+  .cart-item-img { width: 64px; height: 64px; }
+  .cart-item-name { font-size: 14px; }
+  .qty button { width: 36px; height: 36px; }
+  .qty span { min-width: 32px; font-size: 14px; }
+  .cart-item-del { width: 40px; height: 40px; }
+  .cart-foot { position: sticky; bottom: 0; padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .cart-foot .btn { height: 50px; font-size: 14.5px; }
 }
