@@ -18,11 +18,9 @@ function Hero() {
     const v = videoRef.current; if (!v) return;
     const onData = () => { if (v.videoWidth > 0) setVideoOk(true); };
     v.addEventListener('loadeddata', onData);
-    let alive = true;
-    fetch('/hero-video.mp4', { method: 'HEAD' })
-      .then((r) => { if (alive && r.ok) { v.src = '/hero-video.mp4'; v.load(); const p = v.play(); if (p && p.catch) p.catch(() => {}); } })
-      .catch(() => {});
-    return () => { alive = false; v.removeEventListener('loadeddata', onData); };
+    if (v.readyState >= 2) setVideoOk(true);
+    const p = v.play(); if (p && p.catch) p.catch(() => {});
+    return () => v.removeEventListener('loadeddata', onData);
   }, []);
   const stats = [
     [wbp.brands.length + '', '+', t('stat_brands')],
@@ -33,7 +31,7 @@ function Hero() {
   return (
     <section className="hero hero-video-mode">
       <div className="hero-bg">
-        <video ref={videoRef} className={`hero-video ${videoOk ? 'ready' : ''}`} autoPlay muted loop playsInline preload="auto" />
+        <video ref={videoRef} className={`hero-video ${videoOk ? 'ready' : ''}`} src="/hero-video.mp4" autoPlay muted loop playsInline preload="auto" />
         <div className="hero-fallback" aria-hidden="true">
           <span className="hf-grid" /><span className="hf-blob hf-blob-1" /><span className="hf-blob hf-blob-2" /><span className="hf-scan" /><span className="hf-noise" />
         </div>

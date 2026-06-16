@@ -75,6 +75,8 @@ export default function AppProvider({ catalog, settings = {}, children }) {
     return { view, params };
   }, [pathname, searchParams]);
 
+  useEffect(() => { document.documentElement.setAttribute('data-route', route.view); }, [route.view]);
+
   const nav = useCallback((view, params = {}) => {
     let url = '/';
     if (view === 'home') url = '/';

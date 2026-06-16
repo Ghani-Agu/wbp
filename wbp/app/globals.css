@@ -7,3 +7,30 @@
 .quote-item-line{font-size:13px;color:var(--ink-2);background:var(--surface-2);border-radius:var(--radius-sm);padding:8px 10px}
 .quote-item-line i{color:var(--ink-3)}
 .quote-item-line span{font-weight:700;color:var(--ink)}
+
+/* Equal-size cards: categories ("Par catégorie") + brands ("Marques que nous distribuons") */
+.cat-grid, .brand-grid { grid-auto-rows: 1fr; align-items: stretch; }
+.cat-card, .brand-card { height: 100%; }
+.cat-card .cat-foot { margin-top: auto; }
+.brand-card .brand-card-name { flex: 1 1 auto; }
+
+/* ===== Responsive sizing polish (header left as original) ===== */
+@media (max-width: 600px) {
+  .sec { padding: 46px 0; }
+  .sec-head { margin-bottom: 24px; }
+  .hero-content { padding: clamp(40px,9vh,72px) 0 36px; }
+  .hero-stats { gap: 18px 22px; }
+  .cat-hero { padding: 28px 0 20px; }
+  .ftr-cols { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .ftr-top { gap: 26px; }
+  .pp-thumbs { gap: 8px; }
+  .pp-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .cat-bar { gap: 8px; }
+}
+
+@media (max-width: 440px) {
+  .hero-stats { grid-template-columns: 1fr 1fr; display: grid; gap: 16px 14px; }
+  .ftr-cols { grid-template-columns: 1fr; }
+  .sec-title { font-size: 22px; }
+  .pp-actions { grid-template-columns: 1fr; }
+}
