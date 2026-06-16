@@ -4,7 +4,7 @@ html{-webkit-text-size-adjust:100%}
 :root{
   --accent:#FF5A1F; --accent-ink:#fff;
   --radius:18px; --radius-sm:calc(var(--radius)*.55); --radius-lg:calc(var(--radius)*1.5);
-  --maxw:1300px; --motion-scale:1;
+  --maxw:1500px; --motion-scale:1;
   --font-display:'Space Grotesk'; --font-body:'Manrope';
   --bg:#FBFAF8; --surface:#fff; --surface-2:#F4F1EC; --surface-3:#EDE9E2;
   --ink:#16120E; --ink-2:#6E655C; --ink-3:#9A9087;
