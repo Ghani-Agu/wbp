@@ -7,6 +7,7 @@ import { WHATSAPP } from '@/lib/config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
+import BottomNav from '@/components/BottomNav';
 
 function lsGet(k, fb) { try { const v = localStorage.getItem(k); return v == null ? fb : JSON.parse(v); } catch { return fb; } }
 function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* ignore */ } }
@@ -113,6 +114,7 @@ export default function AppProvider({ catalog, settings = {}, children }) {
       <div className="page-shell">{children}</div>
       <Footer />
       <CartDrawer />
+      <BottomNav />
     </AppCtx.Provider>
   );
 }

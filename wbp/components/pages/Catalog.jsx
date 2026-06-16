@@ -84,6 +84,12 @@ export default function Catalog() {
       <div className="wrap cat-layout">
         <aside className="cat-side">{FilterPanel}</aside>
         <div className="cat-main">
+          <div className="catchips">
+            <button className={`catchip ${cat === 'all' ? 'on' : ''}`} onClick={() => setCat('all')}>{t('all_categories')}</button>
+            {wbp.categories.map((c) => (
+              <button key={c.id} className={`catchip ${cat === c.id ? 'on' : ''}`} onClick={() => setCat(c.id)}>{c[lang]}</button>
+            ))}
+          </div>
           <div className="cat-bar">
             <div className="cat-search">
               <Icon name="search" size={17} className="search-ico" />
