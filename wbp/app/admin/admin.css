@@ -124,6 +124,39 @@ select.adm-tag{border:none;cursor:pointer;-webkit-appearance:none;appearance:non
 .adm-card-form{background:var(--panel);border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line-2);padding:20px}
 .adm-card-form h2{font-family:var(--font-display)}
 
+/* ---- Form fields inside admin panels (brand / category / settings managers) ----
+   These managers render bare <label>Text<input/></label> in .adm-grid2/3 without
+   the .adm-form wrapper, so style panel form controls directly: label ABOVE input,
+   consistent field styling. (Inline-styled inputs e.g. campaigns/subscribers win.) */
+.adm-panel label{display:flex;flex-direction:column;gap:7px;font-size:10.5px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.adm-panel input:not([type=color]),
+.adm-panel select:not(.adm-tag),
+.adm-panel textarea{
+  font:inherit;font-size:14px;font-weight:500;text-transform:none;letter-spacing:normal;
+  width:100%;box-sizing:border-box;height:42px;padding:0 13px;
+  border:1px solid var(--line);border-radius:10px;background:#fdfbf7;color:var(--ink);
+  transition:border-color .15s,box-shadow .15s,background .15s}
+.adm-panel textarea{height:auto;min-height:92px;padding:11px 13px;line-height:1.5;resize:vertical}
+.adm-panel input:not([type=color]):hover,
+.adm-panel select:not(.adm-tag):hover{border-color:#e0d8c9}
+.adm-panel input:not([type=color]):focus,
+.adm-panel select:not(.adm-tag):focus,
+.adm-panel textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-soft)}
+.adm-panel input:disabled,.adm-panel select:disabled{background:var(--line-2);color:var(--ink-3);cursor:not-allowed}
+.adm-panel select:not(.adm-tag){appearance:none;-webkit-appearance:none;padding-inline-end:34px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23a89c8d' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center}
+[dir=rtl] .adm-panel select:not(.adm-tag){background-position:left 12px center}
+.adm-panel input[type=color]{width:58px;height:40px;padding:3px;border:1px solid var(--line);border-radius:10px;cursor:pointer;background:#fff}
+/* give the form cards a touch more breathing room + clearer row separation */
+.adm-grid2,.adm-grid3{gap:14px 16px}
+
+/* ---- Compact, single-row action buttons inside data tables ---- */
+.adm-table td:last-child{white-space:nowrap;width:1%}
+.adm-table .adm-actions{flex-wrap:nowrap;gap:6px;justify-content:flex-end}
+.adm-table .adm-btn{padding:6px 11px;font-size:12px;border-radius:9px}
+
 /* activity feed */
 .feed-item{display:flex;gap:13px;padding:14px 20px;border-bottom:1px solid var(--line-2)}
 .feed-item:last-child{border-bottom:none}
