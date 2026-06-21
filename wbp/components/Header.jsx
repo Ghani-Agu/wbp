@@ -104,7 +104,7 @@ export default function Header() {
       <header className={`hdr ${scrolled ? 'scrolled' : ''}`}>
         <div className="hdr-inner">
           <button className="logo" onClick={() => nav('home')}>
-            <span className="logo-mark"><span className="logo-w">W</span><span className="logo-dot" /></span>
+            <img className="logo-img" src="/logos/wbp.png" alt="World Business Plus" width={40} height={40} />
             <span className="logo-txt"><b>World Business</b><i>Plus</i></span>
           </button>
           <nav className="hdr-nav">
