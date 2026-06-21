@@ -95,7 +95,7 @@ export default function AppProvider({ catalog, settings = {}, children }) {
     setCart((c) => {
       const ex = c.find((i) => i.id === product.id);
       if (ex) return c.map((i) => i.id === product.id ? { ...i, qty: i.qty + qty } : i);
-      return [...c, { id: product.id, name: product.name, code: product.code, cat: product.cat, brand: product.brand, qty }];
+      return [...c, { id: product.id, name: product.name, code: product.code, cat: product.cat, brand: product.brand, image_url: product.image_url, images: product.images, qty }];
     });
   }, []);
   const removeFromCart = useCallback((id) => setCart((c) => c.filter((i) => i.id !== id)), []);

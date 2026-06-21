@@ -32,7 +32,7 @@ export default function CartDrawer() {
             <div className="cart-list">
               {cart.map((c) => (
                 <div className="cart-item" key={c.id}>
-                  <div className="cart-item-img"><ProductImage product={c} /></div>
+                  <div className="cart-item-img"><ProductImage product={wbp.productById(c.id) || c} /></div>
                   <div className="cart-item-info">
                     <button className="cart-item-name" onClick={() => { setCartOpen(false); nav('product', { id: c.id }); }}>{c.name}</button>
                     <span className="cart-item-code">{c.code}</span>
