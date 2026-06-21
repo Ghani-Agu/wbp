@@ -6,7 +6,7 @@ import { subscribeNewsletter } from '@/app/actions';
 import { CONTACT } from '@/lib/config';
 
 export default function Footer() {
-  const { t, lang, nav, wbp, settings } = useApp();
+  const { t, lang, nav, wbp, settings, theme } = useApp();
   const [sub, setSub] = useState(false);
   const [email, setEmail] = useState('');
   return (
@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="ftr-top">
         <div className="ftr-brand">
           <button className="logo logo-ftr" onClick={() => nav('home')}>
-            <span className="logo-mark"><span className="logo-w">W</span><span className="logo-dot" /></span>
+            <img className="logo-img" src={theme === 'light' ? '/logos/wbp1.png' : '/logos/wbp.png'} alt="World Business Plus" width={40} height={40} />
             <span className="logo-txt"><b>World Business</b><i>Plus</i></span>
           </button>
           <p className="ftr-slogan">{t('foot_tag')}</p>
